@@ -2,9 +2,8 @@ MODULE common
   IMPLICIT NONE
 
   ! common variables - Fortran 90 syntax
-  REAL*8, PARAMETER :: pi=3.1415926535897932385
-  REAL*8, PARAMETER :: mfe = 9.2732796E-26, mmg = 4.0359398E-26, mo = 2.6566962E-26 ! masses in kg
-  REAL*8, PARAMETER :: amufe = 55.845, amumg = 24.305, amuo = 15.999, amumgo = 40.304 ! masses in amu
+  REAL, PARAMETER :: pi=4.0*ATAN(1.0)
+  ! REAL*8, PARAMETER :: mfe = 9.2732796E-26, mmg = 4.0359398E-26, mo = 2.6566962E-26 ! masses in kg
   REAL*8, PARAMETER :: avog = 6.02214076E23 !mol^1
   SAVE
 

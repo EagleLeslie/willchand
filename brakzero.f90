@@ -6,6 +6,7 @@ SUBROUTINE brakzero(rho,intc,z1,z2,n,iz1,nz)
   REAL*8, INTENT(IN) :: rho(n), z1, z2, intc
   INTEGER, INTENT(IN) :: n
   REAL*8, DIMENSION(:),INTENT(OUT) :: iz1(n)
+  REAL*8, ALLOCATABLE,DIMENSION(:,:) :: zsurf
   INTEGER, POINTER :: count
   INTEGER, TARGET,INTENT (OUT) :: nz
   INTEGER :: i,j,z

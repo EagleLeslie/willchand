@@ -1,19 +1,33 @@
 # Compiles main.f
 
-CFT = gfortran
+# compiler flags
+FC = gfortran
 LDR = gfortran
-FFLAGS  = -ffixed-line-length-136 -fdefault-real-8 -Wall -fno-automatic -Ofast
+
+# debugging options
+FFLAGS  = -ffixed-line-length-136 -fdefault-real-8 -Wall -fno-automatic -Ofast -g -fbounds-check -fbacktrace -finit-real=nan
+
+# MacOSX libraries
 GLIB = -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
-COMMAND = willchand
 
-.f.o :
-	$(CFT) $(FFLAGS) $*.f90 -c
+# source files
+SRCS = leibniz find_params read_xdat common calc_denfield brakzero interface proximity main
+OBJS = $(SRCS:=.o)
 
-MAIN = willchand.o
+# executable
+MAIN = main
 
-SUBS = \
-brakzero.o hunt.o polint.o zbrak.o common.o zline.o
+# compile project
+all : $(MAIN)
+	@echo Model compiled
 
+$(MAIN) : $(OBJS)
+	$(FC) $(FFLAGS) $(GLIB) -o $(MAIN) $(OBJS)
 
-$(COMMAND): $(MAIN) $(SUBS)
-	$(LDR) $(FFLAGS) -o $(COMMAND) $(MAIN) $(SUBS) 
+.SUFFIXES : .o .f .f90
+
+.f90.o : 
+	$(FC) $(FFLAGS) $(GLIB) -c $<
+
+clean:
+	$(RM) *.o *.mod $(MAIN) 
