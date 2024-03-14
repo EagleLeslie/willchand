@@ -30,6 +30,7 @@ The user should keep this in mind when calculating the Gibbs Dividing Surface fo
 The file ADATCAR contains the same information as XDATCAR but with an additional column printed after the atomic positions. The last column represents the distance of the atom with respect to the nearest interface.
 
 **Comile**
+
 To compile the code, enter the command "make". 
 Compiler flags in makefile use gfortran. MacOSX library required and uses the flag: GLIB = -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
 
