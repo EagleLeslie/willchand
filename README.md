@@ -29,7 +29,12 @@ The user should keep this in mind when calculating the Gibbs Dividing Surface fo
 
 The file ADATCAR contains the same information as XDATCAR but with an additional column printed after the atomic positions. The last column represents the distance of the atom with respect to the nearest interface.
 
-**Comile**
+The files intf1 and intf2 contain the location of the Gibbs Dividing Surface at each time step. The files are formatted in: timestep, x-coordinate, y-coordinate, z-coordinate.
+
+_**Note**: The program may fail at finding a Gibbs Dividing Surface if complete mixing of the two-phases occurs. This is due to the program having difficulty locating a z-coordinate at a given interface constant value.
+The failure can be seen in either the intf1 or intf2 output file where repeated values of z-coordinates will occur._
+
+**Compile**
 
 To compile the code, enter the command "make". 
 Compiler flags in makefile use gfortran. MacOSX library required and uses the flag: GLIB = -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
