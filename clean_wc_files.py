@@ -2,7 +2,7 @@ import os
 
 def clean_wc():
 
-    os.system("rm intf1* intf2* DENFIELD ratom")
+    os.system("rm intf1* intf2* DENFIELD NPHI INTFC")
 
 if __name__ == '__main__':
 
